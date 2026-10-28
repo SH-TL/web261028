@@ -1,6 +1,63 @@
+// script.js : 내 영화 평점 통계(콘솔판) 
+// 작성자 : 정승현(2551039) 
+const titles = ["스파이더맨 : 브랜드 뉴 데이", "스파이더맨 : 홈커밍", "스파이더맨 : 노 웨이 홈", "스파이더맨 : 파 프롬 홈", "어벤져스 : 인피니티 워"];
+const ratings = [8.5, 7.3, 7.9, 7.4, 8.2];
+const years = [2026, 2017, 2021, 2019, 2018];
+let sum = 0;
+for (let i = 0; i < ratings.length; i++) {
+    sum = sum + ratings[i];
+}
+console.log("합계:", sum);
+
+const average = sum / ratings.length;
+console.log("평균:", average);
+
+let count = 0;
+let max = ratings[0];
+let maxIndex = 0;
+for (let i = 0; i < ratings.length; i++) {
+    if (ratings[i] >= 8) count++;
+    if (ratings[i] > max) {
+        max = ratings[i];
+        maxIndex = i;
+    }
+
+}
+console.log("최고:", titles[maxIndex], max);
+console.log("8점 이상:", count + "편");
+
+
+for (let i = 0; i < 5; i++) {
+    let label;
+    if (ratings[i] > 8.5) {
+        label = "명작";
+    }
+    else if (ratings[i] > 7) {
+        label = "추천";
+    }
+    else {
+        label = "보통";
+    }
+    console.log(titles[i] + " (" + years[i] + ") : " + ratings[i] + " " + label);
+}
+
+const avgText = average.toFixed(1); 
+const best = titles[maxIndex]; 
+alert(`내 영화 ${titles.length}편, 평균 ${avgText}점, 최고는 ${best}`);
+
+console.log(`alert(내 영화 ${titles.length}편, 평균 ${avgText}점, 최고는 ${best});`)
+
+
+
+
+
+
+
+
+
 // document.write("외부 스크립트 방법");
 
-console.log("콘솔창에 나와야 하는 내용");
+/*console.log("콘솔창에 나와야 하는 내용");
 
 var num = 10 + 20;
 
@@ -43,4 +100,4 @@ for (dan = 1; dan  < 10; dan++) {
     console.log(`${dan} X ${i} = ${dan*i}`);
     }
     console.log("---------------");
-}
+}*/
